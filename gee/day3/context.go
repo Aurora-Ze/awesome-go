@@ -27,16 +27,6 @@ func newContext(writer http.ResponseWriter, req *http.Request) *Context {
 	}
 }
 
-// TODO what
-func (c *Context) PostForm(key string) string {
-	return c.Req.FormValue(key)
-}
-
-// TODO what
-func (c *Context) Query(key string) string {
-	return c.Req.URL.Query().Get(key)
-}
-
 // Status 设置HTTP响应状态码
 func (c *Context) Status(code int) {
 	c.StatusCode = code
@@ -69,4 +59,14 @@ func (c *Context) JSON(code int, obj interface{}) {
 	if err := encoder.Encode(obj); err != nil {
 		http.Error(c.Writer, err.Error(), 500)
 	}
+}
+
+// TODO what
+func (c *Context) PostForm(key string) string {
+	return c.Req.FormValue(key)
+}
+
+// TODO what
+func (c *Context) Query(key string) string {
+	return c.Req.URL.Query().Get(key)
 }

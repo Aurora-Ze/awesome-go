@@ -38,12 +38,14 @@ func (r *router) addRoute(methodType string, pattern string, handler HandlerFunc
 	r.handlers[key] = handler
 }
 
-// TODO what
+// handle 对请求进行处理
 func (r *router) handle(c *Context) {
-
-	key := combineToRouteKey(c.Req.Method, c.Req.URL.Path)
-	if handler, ok := r.handlers[key]; ok {
-		handler(c)
+	// 从路由树中找到匹配的节点
+	node, params := r.getRoute(c.Method, c.Path)
+	if node != nil {
+		c.Params = params // 把解析得到的参数赋值给context，方便后续使用
+		key := combineToRouteKey(c.Method, node.pattern)
+		r.handlers[key](c)
 	} else {
 		c.String(http.StatusNotFound, "404 NOT FOUND: %s\n", c.Path)
 	}
