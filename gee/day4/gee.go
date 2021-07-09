@@ -1,20 +1,29 @@
-package day3
+package day4
 
 import "net/http"
 
 type HandlerFunc func(*Context)
 
+// Engine 启动引擎，嵌套了路由组，因此具有路由组的所有方法。
 type Engine struct {
-	*router
+	*RouterGroup                // 根路由组
+	router       *router        // 路由表
+	groups       []*RouterGroup // 持有所有路由组
 }
 
 type H map[string]interface{}
 
 // New 返回一个Engine实例
 func New() *Engine {
-	return &Engine{
+	rootRouter := newRouterGroup()
+	engine := &Engine{
+		rootRouter,
 		newRouter(),
+		[]*RouterGroup{rootRouter},
 	}
+	rootRouter.engine = engine
+
+	return engine
 }
 
 // ServeHTTP 把信息封装成Context，并调用router去处理请求。每次请求都会调用该方法。

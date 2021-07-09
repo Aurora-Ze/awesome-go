@@ -1,10 +1,9 @@
 package main
 
 import (
-	"fmt"
+	"helloworld/test"
 )
 
 func main() {
-	str := ""
-	fmt.Print(str[0])
+	test.TestDay4()
 }

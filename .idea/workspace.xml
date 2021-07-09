@@ -20,10 +20,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78dceb5d-cc6b-48d1-8371-0f63c2870dcf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/gee/day3/router_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gee/day4/context.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gee/day4/gee.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gee/day4/router.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gee/day4/router_group.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gee/day4/trie.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gee/day5/context.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gee/day5/gee.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gee/day5/router.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gee/day5/router_group.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gee/day5/trie.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/integration/middleware.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gee/day3/context.go" beforeDir="false" afterPath="$PROJECT_DIR$/gee/day3/context.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gee/day3/gee.go" beforeDir="false" afterPath="$PROJECT_DIR$/gee/day3/gee.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gee/day3/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/gee/day3/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gee/day3/router_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/gee/day3/router_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gee/day3/trie.go" beforeDir="false" afterPath="$PROJECT_DIR$/gee/day3/trie.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_usage.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_usage.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +73,7 @@
     <property name="configurable.Module.GOPATH.is.expanded" value="false" />
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/gee" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -66,12 +81,13 @@
     <property name="settings.editor.selected.configurable" value="DevHelperSetting" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\project\helloworld\gee\day3" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\project\helloworld\gee\day2" />
       <recent name="D:\project\helloworld\gee\day1" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\project\awesome-go\gee" />
+      <recent name="D:\project\helloworld\gee\day3" />
     </key>
   </component>
   <component name="RunManager" selected="Go Build.go build helloworld">
@@ -79,9 +95,9 @@
       <module name="helloworld" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
       <package value="helloworld" />
       <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$/main.go" />
       <method v="2" />
     </configuration>
     <configuration name="go build helloworld/" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
@@ -89,17 +105,43 @@
       <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
       <kind value="DIRECTORY" />
+      <filePath value="$PROJECT_DIR$" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_getRoute in helloworld/gee/day3" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="helloworld" />
+      <working_directory value="$PROJECT_DIR$/gee/day3" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="helloworld/gee/day3" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTest_getRoute\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Test_use_router in helloworld/gee/day3" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="helloworld" />
+      <working_directory value="$PROJECT_DIR$/gee/day3" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="helloworld/gee/day3" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTest_use_router\E$" />
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Go Build.go build helloworld/" />
       <item itemvalue="Go Build.go build helloworld" />
+      <item itemvalue="Go Test.Test_use_router in helloworld/gee/day3" />
+      <item itemvalue="Go Test.Test_getRoute in helloworld/gee/day3" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build helloworld" />
+        <item itemvalue="Go Test.Test_getRoute in helloworld/gee/day3" />
+        <item itemvalue="Go Test.Test_use_router in helloworld/gee/day3" />
       </list>
     </recent_temporary>
   </component>
@@ -140,47 +182,47 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="1105" y="490" key="EnvironmentVariablesDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1625486250696" />
-    <state x="848" y="361" key="FileChooserDialogImpl" timestamp="1625487513484">
+    <state x="848" y="361" key="FileChooserDialogImpl" timestamp="1625815176298">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state x="848" y="361" key="FileChooserDialogImpl/0.0.2048.1112@0.0.2048.1112" timestamp="1625487513484" />
+    <state x="848" y="361" key="FileChooserDialogImpl/0.0.2048.1112@0.0.2048.1112" timestamp="1625815176298" />
     <state x="1060" y="454" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1621841268567" />
-    <state width="1292" height="192" key="GridCell.Tab.0.bottom" timestamp="1625748748644">
+    <state width="1293" height="243" key="GridCell.Tab.0.bottom" timestamp="1625820686017">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1292" height="192" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1625748748644" />
+    <state width="1293" height="243" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1625820686017" />
     <state width="2517" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1621837961587" />
-    <state width="1292" height="192" key="GridCell.Tab.0.center" timestamp="1625748748644">
+    <state width="1293" height="243" key="GridCell.Tab.0.center" timestamp="1625820686017">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1292" height="192" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1625748748644" />
+    <state width="1293" height="243" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1625820686017" />
     <state width="2517" height="401" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1621837961587" />
-    <state width="1292" height="192" key="GridCell.Tab.0.left" timestamp="1625748748644">
+    <state width="1293" height="243" key="GridCell.Tab.0.left" timestamp="1625820686016">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1292" height="192" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1625748748644" />
+    <state width="1293" height="243" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1625820686016" />
     <state width="2517" height="401" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1621837961587" />
-    <state width="1292" height="192" key="GridCell.Tab.0.right" timestamp="1625748748644">
+    <state width="1293" height="243" key="GridCell.Tab.0.right" timestamp="1625820686017">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1292" height="192" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1625748748644" />
+    <state width="1293" height="243" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1625820686017" />
     <state width="2517" height="401" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1621837961587" />
-    <state width="1291" height="179" key="GridCell.Tab.1.bottom" timestamp="1625745629172">
+    <state width="2005" height="195" key="GridCell.Tab.1.bottom" timestamp="1625813765132">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1291" height="179" key="GridCell.Tab.1.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1625745629172" />
-    <state width="1291" height="179" key="GridCell.Tab.1.center" timestamp="1625745629172">
+    <state width="2005" height="195" key="GridCell.Tab.1.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1625813765132" />
+    <state width="2005" height="195" key="GridCell.Tab.1.center" timestamp="1625813765132">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1291" height="179" key="GridCell.Tab.1.center/0.0.2048.1112@0.0.2048.1112" timestamp="1625745629172" />
-    <state width="1291" height="179" key="GridCell.Tab.1.left" timestamp="1625745629172">
+    <state width="2005" height="195" key="GridCell.Tab.1.center/0.0.2048.1112@0.0.2048.1112" timestamp="1625813765132" />
+    <state width="2005" height="195" key="GridCell.Tab.1.left" timestamp="1625813765132">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1291" height="179" key="GridCell.Tab.1.left/0.0.2048.1112@0.0.2048.1112" timestamp="1625745629172" />
-    <state width="1291" height="179" key="GridCell.Tab.1.right" timestamp="1625745629172">
+    <state width="2005" height="195" key="GridCell.Tab.1.left/0.0.2048.1112@0.0.2048.1112" timestamp="1625813765132" />
+    <state width="2005" height="195" key="GridCell.Tab.1.right" timestamp="1625813765132">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
-    <state width="1291" height="179" key="GridCell.Tab.1.right/0.0.2048.1112@0.0.2048.1112" timestamp="1625745629172" />
+    <state width="2005" height="195" key="GridCell.Tab.1.right/0.0.2048.1112@0.0.2048.1112" timestamp="1625813765132" />
     <state x="719" y="276" key="SettingsEditor" timestamp="1625745608810">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>

@@ -1,4 +1,4 @@
-package day3
+package day5
 
 import (
 	"encoding/json"
@@ -18,12 +18,27 @@ type Context struct {
 	Params map[string]string
 	// response info
 	StatusCode int
+	// middlewares
+	handlers []HandlerFunc
+	index    int
 }
 
 func newContext(writer http.ResponseWriter, req *http.Request) *Context {
 	return &Context{
 		Writer: writer,
 		Req:    req,
+		Method: req.Method,
+		Path:   req.URL.Path,
+		index:  -1,
+	}
+}
+
+func (c *Context) Next() {
+	c.index++
+
+	len := len(c.handlers)
+	for ; c.index < len; c.index++ {
+		c.handlers[c.index](c)
 	}
 }
 
