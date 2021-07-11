@@ -20,23 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78dceb5d-cc6b-48d1-8371-0f63c2870dcf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/gee/day4/context.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gee/day4/gee.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gee/day4/router.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gee/day4/router_group.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gee/day4/trie.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gee/day5/context.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gee/day5/gee.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gee/day5/router.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gee/day5/router_group.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gee/day5/trie.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/integration/middleware.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gee/day5/middleware.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_leetcode.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gee/day3/context.go" beforeDir="false" afterPath="$PROJECT_DIR$/gee/day3/context.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gee/day3/gee.go" beforeDir="false" afterPath="$PROJECT_DIR$/gee/day3/gee.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gee/day3/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/gee/day3/router.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gee/day3/router_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/gee/day3/router_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gee/day3/trie.go" beforeDir="false" afterPath="$PROJECT_DIR$/gee/day3/trie.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gee/day5/context.go" beforeDir="false" afterPath="$PROJECT_DIR$/gee/day5/context.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gee/day5/gee.go" beforeDir="false" afterPath="$PROJECT_DIR$/gee/day5/gee.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gee/day5/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/gee/day5/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/integration/middleware.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/test_usage.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_usage.go" afterDir="false" />
     </list>
@@ -73,7 +63,7 @@
     <property name="configurable.Module.GOPATH.is.expanded" value="false" />
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/gee" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/gee/day5" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -81,13 +71,14 @@
     <property name="settings.editor.selected.configurable" value="DevHelperSetting" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\aurora\idea\GoWorks\src\awesome-go\gee\day5" />
+      <recent name="D:\project\awesome-go\gee" />
+      <recent name="D:\project\helloworld\gee\day3" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\project\helloworld\gee\day2" />
       <recent name="D:\project\helloworld\gee\day1" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\project\awesome-go\gee" />
-      <recent name="D:\project\helloworld\gee\day3" />
     </key>
   </component>
   <component name="RunManager" selected="Go Build.go build helloworld">
@@ -95,9 +86,9 @@
       <module name="helloworld" />
       <working_directory value="$PROJECT_DIR$" />
       <kind value="PACKAGE" />
-      <filePath value="$PROJECT_DIR$/main.go" />
       <package value="helloworld" />
       <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/main.go" />
       <method v="2" />
     </configuration>
     <configuration name="go build helloworld/" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
@@ -105,37 +96,37 @@
       <working_directory value="$PROJECT_DIR$" />
       <go_parameters value="-i" />
       <kind value="DIRECTORY" />
-      <filePath value="$PROJECT_DIR$" />
       <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
     <configuration name="Test_getRoute in helloworld/gee/day3" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="helloworld" />
       <working_directory value="$PROJECT_DIR$/gee/day3" />
-      <framework value="gotest" />
       <kind value="PACKAGE" />
       <package value="helloworld/gee/day3" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
       <pattern value="^\QTest_getRoute\E$" />
       <method v="2" />
     </configuration>
     <configuration name="Test_use_router in helloworld/gee/day3" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="helloworld" />
       <working_directory value="$PROJECT_DIR$/gee/day3" />
-      <framework value="gotest" />
       <kind value="PACKAGE" />
       <package value="helloworld/gee/day3" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
       <pattern value="^\QTest_use_router\E$" />
       <method v="2" />
     </configuration>
     <list>
       <item itemvalue="Go Build.go build helloworld/" />
       <item itemvalue="Go Build.go build helloworld" />
-      <item itemvalue="Go Test.Test_use_router in helloworld/gee/day3" />
       <item itemvalue="Go Test.Test_getRoute in helloworld/gee/day3" />
+      <item itemvalue="Go Test.Test_use_router in helloworld/gee/day3" />
     </list>
     <recent_temporary>
       <list>
@@ -164,72 +155,15 @@
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
-  <component name="WindowStateProjectService">
-    <state x="1072" y="358" key="#GOPATH" timestamp="1621834756999">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1072" y="358" key="#GOPATH/0.0.2560.1400@0.0.2560.1400" timestamp="1621834756999" />
-    <state x="1085" y="394" key="#Notifications" timestamp="1625745668233">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state x="1085" y="394" key="#Notifications/0.0.2048.1112@0.0.2048.1112" timestamp="1625745668233" />
-    <state x="587" y="282" width="874" height="644" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1625486455363">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state x="587" y="282" width="874" height="644" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1625486455363" />
-    <state x="734" y="355" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1621824457066" />
-    <state x="1105" y="490" key="EnvironmentVariablesDialog" timestamp="1625486250696">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state x="1105" y="490" key="EnvironmentVariablesDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1625486250696" />
-    <state x="848" y="361" key="FileChooserDialogImpl" timestamp="1625815176298">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state x="848" y="361" key="FileChooserDialogImpl/0.0.2048.1112@0.0.2048.1112" timestamp="1625815176298" />
-    <state x="1060" y="454" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1621841268567" />
-    <state width="1293" height="243" key="GridCell.Tab.0.bottom" timestamp="1625820686017">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state width="1293" height="243" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1625820686017" />
-    <state width="2517" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1621837961587" />
-    <state width="1293" height="243" key="GridCell.Tab.0.center" timestamp="1625820686017">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state width="1293" height="243" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1625820686017" />
-    <state width="2517" height="401" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1621837961587" />
-    <state width="1293" height="243" key="GridCell.Tab.0.left" timestamp="1625820686016">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state width="1293" height="243" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1625820686016" />
-    <state width="2517" height="401" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1621837961587" />
-    <state width="1293" height="243" key="GridCell.Tab.0.right" timestamp="1625820686017">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state width="1293" height="243" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1625820686017" />
-    <state width="2517" height="401" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1621837961587" />
-    <state width="2005" height="195" key="GridCell.Tab.1.bottom" timestamp="1625813765132">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state width="2005" height="195" key="GridCell.Tab.1.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1625813765132" />
-    <state width="2005" height="195" key="GridCell.Tab.1.center" timestamp="1625813765132">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state width="2005" height="195" key="GridCell.Tab.1.center/0.0.2048.1112@0.0.2048.1112" timestamp="1625813765132" />
-    <state width="2005" height="195" key="GridCell.Tab.1.left" timestamp="1625813765132">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state width="2005" height="195" key="GridCell.Tab.1.left/0.0.2048.1112@0.0.2048.1112" timestamp="1625813765132" />
-    <state width="2005" height="195" key="GridCell.Tab.1.right" timestamp="1625813765132">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state width="2005" height="195" key="GridCell.Tab.1.right/0.0.2048.1112@0.0.2048.1112" timestamp="1625813765132" />
-    <state x="719" y="276" key="SettingsEditor" timestamp="1625745608810">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state x="719" y="276" key="SettingsEditor/0.0.2048.1112@0.0.2048.1112" timestamp="1625745608810" />
-    <state x="1020" y="287" width="672" height="678" key="search.everywhere.popup" timestamp="1625563998281">
-      <screen x="0" y="0" width="2048" height="1112" />
-    </state>
-    <state x="1020" y="287" width="672" height="678" key="search.everywhere.popup/0.0.2048.1112@0.0.2048.1112" timestamp="1625563998281" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/main.go</url>
+          <line>14</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -44,10 +44,13 @@ func (r *router) handle(c *Context) {
 	if node != nil {
 		c.Params = params // 把解析得到的参数赋值给context，方便后续使用
 		key := combineToRouteKey(c.Method, node.pattern)
-		r.handlers[key](c)
+		c.handlers = append(c.handlers, r.handlers[key])
 	} else {
-		c.String(http.StatusNotFound, "404 NOT FOUND: %+#v\n", c)
+		c.handlers = append(c.handlers, func(context *Context) {
+			context.String(http.StatusNotFound, "404 NOT FOUND: %v\n", context.Path)
+		})
 	}
+	c.Next()
 }
 
 // getRoute 返回匹配到的最终节点 node 和参数信息 params

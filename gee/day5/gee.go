@@ -1,6 +1,7 @@
 package day5
 
 import (
+	"log"
 	"net/http"
 	"strings"
 )
@@ -29,16 +30,23 @@ func New() *Engine {
 	return engine
 }
 
+func Default() *Engine {
+	e := New()
+	e.Use(Logger(), Recovery())
+	return e
+}
+
 // ServeHTTP 把信息封装成Context，并调用router去处理请求。每次请求都会调用该方法。
 func (e Engine) ServeHTTP(writer http.ResponseWriter, req *http.Request) {
-	handler := make([]*HandlerFunc, 0)
+	handler := make([]HandlerFunc, 0)
 	for _, group := range e.groups {
 		if strings.HasPrefix(req.URL.Path, group.baseURL) {
-			handler = append(handler, group.handler)
+			handler = append(handler, group.handler...)
 		}
 	}
 
 	context := newContext(writer, req)
+	context.handlers = handler
 	e.router.handle(context)
 }
 
@@ -54,7 +62,14 @@ func (e Engine) Post(pattern string, handler HandlerFunc) {
 
 // Run 开启服务
 func (e Engine) Run(addr string) error {
-	return http.ListenAndServe(addr, e)
+	err := http.ListenAndServe(addr, e)
+
+	if err != nil {
+		log.Fatalf("Start serve error: %v", err)
+	}
+
+	log.Printf("Start serve, listen on %s", addr)
+	return nil
 }
 
 // addRoute 添加路由映射

@@ -1,9 +1,11 @@
 package test
 
 import (
+	"fmt"
 	"helloworld/gee/day2"
 	"helloworld/gee/day3"
 	"helloworld/gee/day4"
+	"helloworld/gee/day5"
 	"net/http"
 )
 
@@ -57,4 +59,22 @@ func TestDay4() {
 	})
 
 	_ = engine.Run(address)
+}
+
+func TestDay5() {
+	engine := day5.Default()
+
+	engine.Get("/", func(context *day5.Context) {
+		context.JSON(http.StatusOK, "hello")
+	})
+	engine.Get("/hello", func(context *day5.Context) {
+		arr := []int{1, 2}
+		fmt.Println(arr[4])
+
+		context.JSON(http.StatusOK, day5.H{
+			"msg": "haha",
+		})
+	})
+
+	engine.Run(address)
 }

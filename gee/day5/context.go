@@ -86,3 +86,7 @@ func (c *Context) PostForm(key string) string {
 func (c *Context) Query(key string) string {
 	return c.Req.URL.Query().Get(key)
 }
+
+func (c *Context) Fail(code int, msg string) {
+	c.JSON(code, msg)
+}
