@@ -16,8 +16,10 @@ type Context struct {
 	Path   string
 	Method string
 	Params map[string]string
+
 	// response info
 	StatusCode int
+
 	// middlewares
 	handlers []HandlerFunc
 	index    int
@@ -36,8 +38,8 @@ func newContext(writer http.ResponseWriter, req *http.Request) *Context {
 func (c *Context) Next() {
 	c.index++
 
-	len := len(c.handlers)
-	for ; c.index < len; c.index++ {
+	length := len(c.handlers)
+	for ; c.index < length; c.index++ {
 		c.handlers[c.index](c)
 	}
 }
@@ -87,6 +89,7 @@ func (c *Context) Query(key string) string {
 	return c.Req.URL.Query().Get(key)
 }
 
+// Fail 失败时返回信息
 func (c *Context) Fail(code int, msg string) {
 	c.JSON(code, msg)
 }

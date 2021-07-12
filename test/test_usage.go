@@ -7,6 +7,7 @@ import (
 	"helloworld/gee/day4"
 	"helloworld/gee/day5"
 	"net/http"
+	"time"
 )
 
 const address = "localhost:51234"
@@ -63,17 +64,21 @@ func TestDay4() {
 
 func TestDay5() {
 	engine := day5.Default()
-
-	engine.Get("/", func(context *day5.Context) {
+	engine.GET("/", func(context *day5.Context) {
+		time.Sleep(time.Millisecond * 10)
 		context.JSON(http.StatusOK, "hello")
 	})
-	engine.Get("/hello", func(context *day5.Context) {
+	engine.POST("/recovery", func(context *day5.Context) {
 		arr := []int{1, 2}
 		fmt.Println(arr[4])
 
 		context.JSON(http.StatusOK, day5.H{
 			"msg": "haha",
 		})
+	})
+	engine.POST("/post", func(context *day5.Context) {
+		body := context.Req.PostForm
+		fmt.Printf("body is: \n\t%v\n", body)
 	})
 
 	engine.Run(address)

@@ -1,5 +1,7 @@
 package day5
 
+import "net/http"
+
 // RouterGroup 路由组，方便对一组路由进行管理和配置。所有路由组拥有一个共同的 Engine
 type RouterGroup struct {
 	handler []HandlerFunc //
@@ -30,11 +32,11 @@ func (r *RouterGroup) Group(baseURL string) *RouterGroup {
 }
 
 func (r *RouterGroup) GET(pattern string, handler HandlerFunc) {
-	r.addRoute("GET", pattern, handler)
+	r.addRoute(http.MethodGet, pattern, handler)
 }
 
 func (r *RouterGroup) POST(pattern string, handler HandlerFunc) {
-	r.addRoute("POST", pattern, handler)
+	r.addRoute(http.MethodPost, pattern, handler)
 }
 
 func (r *RouterGroup) addRoute(methodType string, pattern string, handler HandlerFunc) {

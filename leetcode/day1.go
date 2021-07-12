@@ -1,23 +1,23 @@
-package test
+package leetcode
 
 import (
-	"bytes"
 	"fmt"
+	"strings"
 )
 
-// Offer 05
+// Offer05：替换字符串中的空格为%20
 func ReplaceSpace(s string) string {
-	buffer := bytes.Buffer{}
+	build := strings.Builder{}
 
 	for _, v := range s {
 		if v == ' ' {
-			buffer.WriteString("%20")
+			build.WriteString("%20")
 		} else {
-			buffer.WriteString(string(v))
+			build.WriteString(string(v))
 		}
 	}
 
-	return buffer.String()
+	return build.String()
 }
 
 func Test() {

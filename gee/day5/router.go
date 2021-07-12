@@ -10,8 +10,7 @@ import (
 // 前者表示通配赋值，可用于路径的任意位置；后者表示通配文件路径
 // 只能用于路径末尾，且最多出现一个
 type router struct {
-	roots map[string]*Node // http请求方法与前缀路由树的映射；例如 GET -> a tree，POST -> another tree
-
+	roots    map[string]*Node       // http请求方法与前缀路由树的映射；例如 GET -> a tree，POST -> another tree
 	handlers map[string]HandlerFunc // 请求路径与处理方法的映射，key由方法与路径拼接而成；例如 GET-/user/login -> Login method
 }
 
