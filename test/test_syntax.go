@@ -1,6 +1,7 @@
 package test
 
 import (
+	"fmt"
 	"log"
 	"strings"
 )
@@ -24,4 +25,11 @@ func Test_String_Split() {
 	log.Printf("res length is %v\n", len(res))
 	log.Printf("res[0] eq \"\": %v\n", res[0] == "")
 
+}
+
+func Test_defer() int {
+	defer func() {
+		fmt.Println(2)
+	}()
+	return 1
 }
