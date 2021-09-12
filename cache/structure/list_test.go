@@ -14,7 +14,7 @@ func Test_MyDoubleEndList(t *testing.T) {
 	ll.RemoveToFirst(node1)
 
 	fmt.Printf("base info, length = %v, first value = %v and last value = %v\n",
-		ll.Len(), ll.GetFirst().Value, ll.GetLast().Value)
+		ll.Len(), ll.GetFirst().pair, ll.GetLast().pair)
 	fmt.Println("------concrete info:")
 	for i := ll.Len(); i > 0; i-- {
 		fmt.Println(ll.Remove(ll.GetFirst()))

@@ -3,9 +3,10 @@ package test
 import (
 	"log"
 	"strings"
+	"testing"
 )
 
-func Test_Map_NotFound() {
+func Test_Map_NotFound(t *testing.T) {
 	testMap := make(map[string]int)
 	testMap["0"] = 1
 	v, ok := testMap["1"]
@@ -17,7 +18,7 @@ func Test_Map_NotFound() {
 	log.Printf("ok1 is %v\n", ok1)
 }
 
-func Test_String_Split() {
+func Test_String_Split(t *testing.T) {
 	str := "///"
 	res := strings.Split(str, "/")
 	log.Printf("res is %v\n", res)

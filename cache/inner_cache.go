@@ -26,8 +26,8 @@ func (c *cache) get(key string) (ByteView, bool) {
 	defer c.mu.Unlock()
 
 	if c.lru != nil {
-		if kv, exist := c.lru.Get(key); exist {
-			return kv.(ByteView), true
+		if value, exist := c.lru.Get(key); exist {
+			return value.(ByteView), true
 		}
 	}
 	return ByteView{}, false
