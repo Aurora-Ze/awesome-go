@@ -7,6 +7,12 @@ type ByteView struct {
 	data []byte
 }
 
+func NewByteView(data []byte) ByteView {
+	return ByteView{
+		data: data,
+	}
+}
+
 func (v ByteView) Len() uint64 {
 	return cast.ToUint64(len(v.data))
 }

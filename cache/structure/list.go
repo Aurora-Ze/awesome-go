@@ -1,9 +1,9 @@
 package structure
 
 type Element struct {
-	next  *Element
-	prev  *Element
-	Value interface{}
+	next *Element
+	prev *Element
+	Pair interface{} // key-value
 
 	// indicates which list the Element belongs to
 	list *DeList
@@ -92,7 +92,7 @@ func (l *DeList) InsertAfter(value interface{}, e *Element) *Element {
 // Remove removes the specified element in this list
 func (l *DeList) Remove(e *Element) interface{} {
 	if e.list != l {
-		return e.Value
+		return e.Pair
 	}
 	return l.remove(e)
 }
@@ -138,7 +138,7 @@ func (l *DeList) remove(e *Element) interface{} {
 }
 
 func (l *DeList) insertValue(value interface{}, at *Element) *Element {
-	element := &Element{Value: value}
+	element := &Element{Pair: value}
 	// change point
 	element.next = at.next
 	element.prev = at

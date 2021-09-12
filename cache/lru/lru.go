@@ -3,6 +3,7 @@ package lru
 import (
 	"awesome-go/cache/structure"
 	"github.com/spf13/cast"
+	"log"
 )
 
 type HandleFunc func(key string, value Value)
@@ -28,6 +29,10 @@ type entry struct {
 	value Value
 }
 
+func (e entry) Len() uint64 {
+	return cast.ToUint64(len(e.key)) + e.value.Len()
+}
+
 // NewCache returns a initialized cache structure
 func NewCache(max uint64, onEvicted HandleFunc) *Cache {
 	return &Cache{
@@ -44,7 +49,7 @@ func (c *Cache) Get(key string) (Value, bool) {
 		return nil, false
 	}
 	// type assert
-	kv, ok2 := element.Value.(*entry)
+	kv, ok2 := element.Pair.(*entry)
 	if !ok2 {
 		return nil, false
 	}
@@ -60,31 +65,46 @@ func (c *Cache) CacheOut() {
 	}
 
 	c.ll.Remove(rmEle)
-	kv := rmEle.Value.(*entry)
+	kv, ok := rmEle.Pair.(*entry)
+	if !ok {
+		log.Println("casting element value error")
+		return
+	}
+
 	delete(c.cache, kv.key)
 	// update memory usage
-	c.curBytes -= cast.ToUint64(len(kv.key)) + kv.value.Len()
+	c.curBytes -= kv.Len()
 	// execute callback function
 	if c.OnEvicted != nil {
 		c.OnEvicted(kv.key, kv.value)
 	}
 }
 
+// Add 添加缓存，以键值对的形式存储在 element 结构体的Pair字段中
 func (c *Cache) Add(key string, value Value) {
 	ele, exist := c.cache[key]
 	if exist {
 		c.ll.RemoveToLast(ele)
-		kv := ele.Value.(*entry)
-		kv.value = value
-		// update memory
-		c.curBytes += value.Len() - kv.value.Len()
-	} else {
-		ety := &entry{key: key, value: value}
-		ele = c.ll.AddLast(ety) // ele means the added element
-		c.cache[key] = &structure.Element{
-			Value: ele,
+		// fixme
+		kv, ok := ele.Pair.(*entry)
+		if !ok {
+			log.Println("casting element value error")
+			return
 		}
-		c.curBytes += cast.ToUint64(len(key)) + value.Len()
+		old := kv.value
+		kv.value = value
+		ele.Pair = kv
+		c.cache[key] = ele
+		// update memory
+		c.curBytes += value.Len() - old.Len()
+	} else {
+		addEntry := &entry{
+			key:   key,
+			value: value,
+		}
+		ele = c.ll.AddLast(addEntry) // ele means the added element
+		c.cache[key] = ele
+		c.curBytes += addEntry.Len()
 	}
 
 	// judge out of memory
@@ -95,4 +115,12 @@ func (c *Cache) Add(key string, value Value) {
 
 func (c *Cache) Len() int {
 	return c.ll.Len()
+}
+
+func (c *Cache) GetMaxBytes() uint64 {
+	return c.maxBytes
+}
+
+func (c *Cache) GetCurrentBytes() uint64 {
+	return c.curBytes
 }

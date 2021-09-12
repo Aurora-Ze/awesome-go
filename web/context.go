@@ -3,6 +3,7 @@ package web
 import (
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 )
 
@@ -76,6 +77,18 @@ func (c *Context) JSON(code int, obj interface{}) {
 	if err := encoder.Encode(obj); err != nil {
 		http.Error(c.Writer, err.Error(), 500)
 	}
+}
+
+func (c *Context) Binary(code int, obj interface{}) {
+	c.SetHeader("Content-Type", "application/octet-stream")
+	c.Status(code)
+
+	data, err := json.Marshal(obj)
+	if err != nil {
+		log.Printf("error occurs in serialization, err = %v\n", err)
+		http.Error(c.Writer, err.Error(), 500)
+	}
+	c.Writer.Write(data)
 }
 
 // PostForm 获取Post请求携带的实体的值

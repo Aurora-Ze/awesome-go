@@ -17,6 +17,7 @@ var (
 	groups = make(map[string]*Group)
 )
 
+// Getter 回调函数，缓存未命中的情况下，由用户自定义获取数据的方式
 type Getter interface {
 	Get(key string) ([]byte, error)
 }
@@ -67,7 +68,7 @@ func (g *Group) Get(key string) (ByteView, error) {
 	mu.RLock()
 	defer mu.RUnlock()
 	if data, ok := g.cacheData.get(key); ok {
-		log.Println("[Cache] hit")
+		log.Println("[Distributed Cache] hit cache")
 		return data, nil
 	}
 	// get from local storage
@@ -91,7 +92,7 @@ func (g *Group) getFromLocal(key string) (ByteView, error) {
 		return ByteView{}, err
 	}
 
-	log.Println("[Local Storage] hit")
+	log.Println("[Distributed Cache] hit local storage")
 	bytes := ByteView{
 		data: data,
 	}
