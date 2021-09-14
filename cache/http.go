@@ -2,8 +2,11 @@ package cache
 
 import (
 	"awesome-go/web"
+	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
+	"net/url"
 )
 
 const (
@@ -29,6 +32,29 @@ func StartServer() {
 	engine := web.New()
 	engine.GET("/cache_api/:group/:key", ServerHandler)
 	_ = engine.Run(Address)
+}
+
+func StartClient(group, key string) ([]byte, error) {
+	_ = NewHttpPool("data1")
+	rsp, err := http.Get(Address + DefaultBaseURL + url.QueryEscape(group) + url.QueryEscape(key))
+	if err != nil {
+		log.Printf("[Distributed Cache] http error\n")
+		return nil, err
+	}
+	defer rsp.Body.Close()
+
+	if rsp.StatusCode != http.StatusOK {
+		log.Printf("[Distributed Cache] status code %d", rsp.StatusCode)
+		return nil, fmt.Errorf("status code error, code = %d\n", rsp.StatusCode)
+	}
+
+	bytes, err := ioutil.ReadAll(rsp.Body)
+	if err != nil {
+		log.Printf("[Distributed Cache] read error, error = %v\n", err)
+		return nil, fmt.Errorf("io read error, error = %v\n", err)
+	}
+
+	return bytes, nil
 }
 
 func ServerHandler(context *web.Context) {
